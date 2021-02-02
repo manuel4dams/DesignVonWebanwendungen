@@ -1,0 +1,84 @@
+<div class="text-light" style="background: #0f0f1e;">
+    <div class="container" style="padding: 6rem;">
+        <div class="row">
+            <div class="col">
+                <h2>Neu hier?</h2>
+                <p class="w-75">
+                    Klicke Dich durch unser Tutorial um zu erfahren was wie geht.
+                </p>
+                <a class="btn btn-link border-primary mt-2">Zum Tutorial</a>
+            </div>
+            <div class="col">
+                <h2>Ausprobieren</h2>
+                <p class="w-75">
+                    Probiere unsere Standkategorie mit Tieren.
+                </p>
+                <a class="btn btn-link border-primary mt-2">Zu den Tieren</a>
+            </div>
+            <div class="col">
+                <h2>Anpassen</h2>
+                <p class="w-75">
+                    Erstelle deine eigene Kategorie mit den Begriffen deiner Wahl!
+                </p>
+                <a class="btn btn-link border-primary mt-2">Kategorie erstellen</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <h2>Zuletzt verwendete Kategorie</h2>
+            <p>Setzte deine letzte Prüfung fort.</p>
+            <h4>Tiere</h4>
+            <?php include "./views/category-preview.phtml"; ?>
+            <a href="/" class="btn btn-primary btn-block mt-4">Weiter</a>
+        </div>
+        <div class="col">
+            <h2>Teste dich!</h2>
+            <p>Du hast diese Kategorie länger nicht bestanden.</p>
+            <h4>Tiere</h4>
+            <?php include "./views/category-preview.phtml"; ?>
+            <a href="/" class="btn btn-primary btn-block mt-4">Ich schaffe das!</a>
+        </div>
+    </div>
+
+    <div class="py-5"></div>
+
+    <div>
+        <h2>Fortschritt</h2>
+        <p>Teste das Wissen deiner Kategorien anhand von deinem Fortschritt.</p>
+        <ul class="list-group">
+            <?php
+            $map = array(
+                'Tiere' => 25,
+                'Hunde' => 10,
+                'Klasse 9a' => 66,
+                'Katzen' => 75,
+                'Studenten Digitale Bildgestaltung' => 0,
+                'Pferdig' => 100,
+            );
+            foreach ($map as $key => $value) { ?>
+                <li class="list-group-item">
+                    <div class="float-left" style="width: 120px; height: 120px;">
+                        <?php include "./views/category-preview.phtml"; ?>
+                    </div>
+                    <div class="float-right">
+                        <a href="?site=category-view" class="btn btn-primary" style="margin-top: 49px;">
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div style="margin-top: 26px; margin-left: 150px; margin-right: 80px;">
+                        <h4 class="mb-3"><?= $key ?></h4>
+                        <div class="progress w-100">
+                            <div class="progress-bar" role="progressbar" style="width: <?= $value ?>%"
+                                 aria-valuenow="<?= $value ?>"
+                                 aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </li>
+            <?php } ?>
+        </ul>
+    </div>
+</div>
